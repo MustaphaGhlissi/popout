@@ -1,0 +1,211 @@
+{% extends 'admin/layout.html.twig' %}
+
+    {% block content %}
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('admin_dashboard') }}">Tableau de bord</a>
+                </li>
+                <li class="breadcrumb-item active"> Liste des offres</li>
+            </ol>
+            <!-- Icon Cards-->
+            <div class="card mb-3">
+
+                <div class="card-header">
+                    <i class="fa fa-users"></i> Liste des offres
+                    <div class="text-right pull-right">
+                        <a href="{{ path('offer_create') }}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            Créer une offre
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% for key,msgs in app.session.flashbag.all() %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-{{ key }}" role="alert">
+                                {{ msg|raw }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTables" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Evènement</th>
+                                <th>Date & Heure début</th>
+                                <th>Date & Heure fin</th>
+                                <th>
+                                    Actions
+                                </th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>id</th>
+                                <th>Evènement</th>
+                                <th>Date & Heure début</th>
+                                <th>Date & Heure fin</th>
+                                <th>
+                                    Actions
+                                </th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fa fa-fw fa-warning"></i>
+                        Attention cette opération est irreversible !
+                        Voulez vous vraiment supprimer cette offre ?
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Non</button>
+                        <form action="" id="form-delete" method="post">
+                            <button class="btn btn-primary" id="deleteOffer">
+                                Oui
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+
+
+{% block javascripts_body %}
+    {{ parent() }}
+    <script>
+
+        $(document).ready(function () {
+            function action(data, type, full, meta) {
+
+                {% set showOffer = 'offer_show' %}
+                {% set updateOffer = 'offer_update' %}
+
+                var id = data.id;
+
+                var showHref = "{{ path(showOffer,{id: 'id'}) }}";
+                showHref = showHref.replace('id', id);
+
+                var updateHref = "{{ path(updateOffer,{id: 'id'}) }}";
+                updateHref = updateHref.replace('id', id);
+
+                var actions = '<ul class="actions"><li>' +
+                    '<a href="' + showHref + '" class="btn btn-primary" style="margin: 5px">' +
+                    '<i class="fa fa-fw fa-eye"></i> </a></li>' +
+                    '<li>' +
+                    '<a href="' + updateHref + '" class="btn btn-success" style="margin: 5px">' +
+                    '<i class="fa fa-fw fa-edit"></i></a></li>' +
+                    '<li>' +
+                    '<a href="#deleteModal" data-id="' + id + '" data-toggle="modal" class="btn btn-danger" style="margin: 5px">' +
+                    '<i class="fa fa-fw fa-trash"></i></a>' +
+                    '</li> </ul>';
+
+                return actions;
+            }
+
+            $('#dataTables').DataTable(
+                {
+                    "destroy": true,
+                    "order": [0, 'asc'],
+                    "processing": true,
+                    "serverSide": false,
+                    "ajax": {
+                        url: "{{ path('offers_list') }}",
+                        type: 'POST'
+                    },
+                    "columnDefs": [
+                        {"orderable": true, "targets": 0}
+                    ],
+                    "columns": [
+                        {
+                            data: "id"
+                        },
+                        {
+                            data: "start_date",
+                            render: function (data, type, full, meta) {
+                                var date = moment.tz(full.start_date,'Europe/Paris').format('YYYY-MM-DD');
+                                var time = moment.tz(full.start_time,'Europe/Paris').format('HH:mm');
+                                return date+" "+time;
+                            }
+                        },
+                        {
+                            data: "end_date",
+                            render: function (data, type, full, meta) {
+                                var date = moment.tz(full.end_date,'Europe/Paris').format('YYYY-MM-DD');
+                                var time = moment.tz(full.end_time,'Europe/Paris').format('HH:mm');
+                                return date+" "+time;
+                            }
+                        },
+                        {
+                            data: "event.name",
+                            render: function (data, type, full, meta) {
+                                return toCapitalize(full.event.name);
+                            }
+                        },
+                        {
+                            orderable: false,
+                            searchable: false,
+                            data: null,
+                            render: function (data, type, full, meta) {
+                                return action(data, type, full, meta);
+                            }
+                        }
+                    ],
+                    "language": {
+                        "sProcessing": "Chargement en cours...",
+                        "sSearch": "Rechercher&nbsp;:",
+                        "sLengthMenu": "Afficher _MENU_ &eacute;l&eacute;ments",
+                        "sInfo": "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                        "sInfoEmpty": "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                        "sInfoFiltered": "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                        "sInfoPostFix": "",
+                        "sLoadingRecords": "Chargement en cours...",
+                        "sZeroRecords": "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                        "sEmptyTable": "Aucune donn&eacute;e disponible dans le tableau",
+                        "oPaginate": {
+                            "sFirst": "Premier",
+                            "sPrevious": "Pr&eacute;c&eacute;dent",
+                            "sNext": "Suivant",
+                            "sLast": "Dernier"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": activer pour trier la colonne par ordre croissant",
+                            "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+                        }
+                    }
+                }
+            );
+        });
+
+        function toCapitalize(string) {
+            return string.substr(0,1).toUpperCase()+string.substr(1,string.length);
+        }
+        $(document).on('click','[href="#deleteModal"]', function () {
+            var id = $(this).data('id');
+            var action;
+            action = "{{ path('offer_delete',{id: 'id'}) }}";
+            action = action.replace('id', id);
+            $('#form-delete').attr('action', action);
+        });
+    </script>
+{% endblock %}

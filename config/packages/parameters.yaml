@@ -1,0 +1,7 @@
+parameters:
+    mailer_email: contact@easytwall.com #contact@popout.com
+    mailer_username: EasyTwall #PopOut
+    qrcode_dir: '%kernel.project_dir%/public/uploads/qrcodes'
+    events_dir: '%kernel.project_dir%/public/uploads/events'
+    locale: fr
+    popout_amount_percentage: 15

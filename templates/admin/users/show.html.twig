@@ -1,0 +1,191 @@
+{% extends 'admin/layout.html.twig' %}
+
+    {% block content %}
+        {% set route = app.request.get('_route') %}
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('admin_dashboard') }}">Tableau de bord</a>
+                </li>
+                <li class="breadcrumb-item">
+                    {% if route starts with 'pro' %}
+                        <a href="{{ path('pro_users') }}">
+                            Liste des professionnels
+                        </a>
+                    {% else %}
+                        <a href="{{ path('classic_users') }}">
+                            Liste des personnels
+                        </a>
+                    {% endif %}
+                </li>
+                <li class="breadcrumb-item active"> {{ (route starts with 'pro')?"Détails du professionnel":"Détails du personnel" }}</li>
+            </ol>
+            <!-- Icon Cards-->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-users"></i> {{ (route starts with 'pro')?"Détails du professionnel":"Détails du personnel" }}
+                </div>
+                <div class="card-body">
+                    {% for key,msgs in app.session.flashbag.all() %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-{{ key }}" role="alert">
+                                {{ msg|raw }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+                    <div class="text-right" style="margin: 10px 0">
+                        <ul class="actions">
+                            {% if route starts with 'pro' %}
+                                <li>
+                                    <a href="{{ path('pro_users') }}">
+                                        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Retour à la liste
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('pro_user_update', {id: user.id}) }}" class="btn btn-success">
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#deleteModal" data-role="{{ 'role_professional'|upper in user.roles?"pro":"classic" }}" data-id="{{ user.id }}" data-toggle="modal" class="btn btn-danger">
+                                        <i class="fa fa-fw fa-trash"></i>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ path('classic_users') }}">
+                                        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Retour à la liste
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('classic_user_update', {id: user.id}) }}" class="btn btn-success">
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#deleteModal" data-role="{{ 'role_professional'|upper in user.roles?"pro":"classic" }}" data-id="{{ user.id }}" data-toggle="modal" class="btn btn-danger">
+                                        <i class="fa fa-fw fa-trash"></i>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <tr>
+                                <th>Identifiant</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prénom</th>
+                                <td>{{ user.firstName|title }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ user.lastName|upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Téléphone</th>
+                                <td>{{ user.phone }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>E-mail</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+
+                            {% if route starts with 'classic' %}
+                            <tr>
+                                <th>
+                                    QRCode
+                                </th>
+                                <td>
+                                    <img src="{{ asset(user.qrCode) }}" alt="">
+                                </td>
+                            </tr>
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-cubes"></i> {{ route starts with 'pro'?'Préférences du professionnel':'Préférences du personnel' }}
+                </div>
+                <div class="card-body">
+                    <ul class="quiz-options">
+                        {% for quiz in user.quizzes %}
+                            <li><i class="fa fa-question-circle" aria-hidden="true"></i> <b>Question n°{{ loop.index }} :</b> {{ quiz.question }}</li>
+                            <li>
+                                <i class="fa fa-reply" aria-hidden="true"></i> <b>Réponses :</b>
+                                <ul>
+                                    {% for response in quiz.responses %}
+                                        <li> {{ response }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {{ loop.index < user.quizzes|length?"<hr>"|raw }}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fa fa-fw fa-warning"></i>
+                        Attention cette opération est irreversible !
+                        Voulez vous vraiment supprimer cet utilisateur ?
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Non</button>
+                        <form action="" method="post" id="form-delete">
+                            <button id="deleteUser" type="submit" class="btn btn-primary">
+                                Oui
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+
+{% block javascripts_body %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('[href="#deleteModal"]').click(function () {
+                var id = $(this).data('id');
+                var role = $(this).data('role');
+                var action;
+                if(role === 'pro')
+                {
+                    action = "{{ path('pro_user_delete',{id: 'id'}) }}"
+                }
+                else
+                {
+                    action = "{{ path('classic_user_delete',{id: 'id'}) }}"
+                }
+                action = action.replace('id', id);
+                $('#form-delete').attr('action', action);
+            });
+        });
+    </script>
+{% endblock %}

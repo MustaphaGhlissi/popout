@@ -1,0 +1,1271 @@
+{
+  "error": {
+    "code": 500,
+    "message": "Internal Server Error",
+    "exception": [
+      {
+        "message": "Notice: Undefined index: classicUser",
+        "class": "ErrorException",
+        "trace": [
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\Persisters\\Entity\\BasicEntityPersister.php",
+            "line": 1794,
+            "args": []
+          },
+          {
+            "namespace": "Doctrine\\ORM\\Persisters\\Entity",
+            "short_class": "BasicEntityPersister",
+            "class": "Doctrine\\ORM\\Persisters\\Entity\\BasicEntityPersister",
+            "type": "->",
+            "function": "getOneToManyStatement",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\Persisters\\Entity\\BasicEntityPersister.php",
+            "line": 1773,
+            "args": [
+              [
+                "array",
+                {
+                  "fieldName": [
+                    "string",
+                    "quizzes"
+                  ],
+                  "mappedBy": [
+                    "string",
+                    "classicUser"
+                  ],
+                  "targetEntity": [
+                    "string",
+                    "App\\Entity\\Quiz"
+                  ],
+                  "cascade": [
+                    "array",
+                    []
+                  ],
+                  "orphanRemoval": [
+                    "boolean",
+                    true
+                  ],
+                  "fetch": [
+                    "integer",
+                    2
+                  ],
+                  "type": [
+                    "integer",
+                    4
+                  ],
+                  "inversedBy": [
+                    "null",
+                    null
+                  ],
+                  "isOwningSide": [
+                    "boolean",
+                    false
+                  ],
+                  "sourceEntity": [
+                    "string",
+                    "App\\Entity\\User"
+                  ],
+                  "isCascadeRemove": [
+                    "boolean",
+                    true
+                  ],
+                  "isCascadePersist": [
+                    "boolean",
+                    false
+                  ],
+                  "isCascadeRefresh": [
+                    "boolean",
+                    false
+                  ],
+                  "isCascadeMerge": [
+                    "boolean",
+                    false
+                  ],
+                  "isCascadeDetach": [
+                    "boolean",
+                    false
+                  ]
+                }
+              ],
+              [
+                "object",
+                "Proxies\\__CG__\\App\\Entity\\User"
+              ]
+            ]
+          },
+          {
+            "namespace": "Doctrine\\ORM\\Persisters\\Entity",
+            "short_class": "BasicEntityPersister",
+            "class": "Doctrine\\ORM\\Persisters\\Entity\\BasicEntityPersister",
+            "type": "->",
+            "function": "loadOneToManyCollection",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\UnitOfWork.php",
+            "line": 2861,
+            "args": [
+              [
+                "array",
+                {
+                  "fieldName": [
+                    "string",
+                    "quizzes"
+                  ],
+                  "mappedBy": [
+                    "string",
+                    "classicUser"
+                  ],
+                  "targetEntity": [
+                    "string",
+                    "App\\Entity\\Quiz"
+                  ],
+                  "cascade": [
+                    "array",
+                    []
+                  ],
+                  "orphanRemoval": [
+                    "boolean",
+                    true
+                  ],
+                  "fetch": [
+                    "integer",
+                    2
+                  ],
+                  "type": [
+                    "integer",
+                    4
+                  ],
+                  "inversedBy": [
+                    "null",
+                    null
+                  ],
+                  "isOwningSide": [
+                    "boolean",
+                    false
+                  ],
+                  "sourceEntity": [
+                    "string",
+                    "App\\Entity\\User"
+                  ],
+                  "isCascadeRemove": [
+                    "boolean",
+                    true
+                  ],
+                  "isCascadePersist": [
+                    "boolean",
+                    false
+                  ],
+                  "isCascadeRefresh": [
+                    "boolean",
+                    false
+                  ],
+                  "isCascadeMerge": [
+                    "boolean",
+                    false
+                  ],
+                  "isCascadeDetach": [
+                    "boolean",
+                    false
+                  ]
+                }
+              ],
+              [
+                "object",
+                "Proxies\\__CG__\\App\\Entity\\User"
+              ],
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ]
+            ]
+          },
+          {
+            "namespace": "Doctrine\\ORM",
+            "short_class": "UnitOfWork",
+            "class": "Doctrine\\ORM\\UnitOfWork",
+            "type": "->",
+            "function": "loadCollection",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\PersistentCollection.php",
+            "line": 702,
+            "args": [
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ]
+            ]
+          },
+          {
+            "namespace": "Doctrine\\ORM",
+            "short_class": "PersistentCollection",
+            "class": "Doctrine\\ORM\\PersistentCollection",
+            "type": "->",
+            "function": "doInitialize",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\PersistentCollection.php",
+            "line": 212,
+            "args": []
+          },
+          {
+            "namespace": "Doctrine\\ORM",
+            "short_class": "PersistentCollection",
+            "class": "Doctrine\\ORM\\PersistentCollection",
+            "type": "->",
+            "function": "initialize",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\doctrine\\collections\\lib\\Doctrine\\Common\\Collections\\AbstractLazyCollection.php",
+            "line": 157,
+            "args": []
+          },
+          {
+            "namespace": "Doctrine\\Common\\Collections",
+            "short_class": "AbstractLazyCollection",
+            "class": "Doctrine\\Common\\Collections\\AbstractLazyCollection",
+            "type": "->",
+            "function": "toArray",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\Handler\\ArrayCollectionHandler.php",
+            "line": 84,
+            "args": []
+          },
+          {
+            "namespace": "JMS\\Serializer\\Handler",
+            "short_class": "ArrayCollectionHandler",
+            "class": "JMS\\Serializer\\Handler\\ArrayCollectionHandler",
+            "type": "->",
+            "function": "serializeCollection",
+            "file": null,
+            "line": null,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ],
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Quiz"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "call_user_func",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 203,
+            "args": [
+              [
+                "array",
+                [
+                  [
+                    "object",
+                    "JMS\\Serializer\\Handler\\ArrayCollectionHandler"
+                  ],
+                  [
+                    "string",
+                    "serializeCollection"
+                  ]
+                ]
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ],
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "ArrayCollection"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Quiz"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 161,
+            "args": [
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "ArrayCollection"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Quiz"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitProperty",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 267,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\Metadata\\PropertyMetadata"
+              ],
+              [
+                "object",
+                "Proxies\\__CG__\\App\\Entity\\User"
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 161,
+            "args": [
+              [
+                "object",
+                "Proxies\\__CG__\\App\\Entity\\User"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "App\\Entity\\User"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitProperty",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 267,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\Metadata\\PropertyMetadata"
+              ],
+              [
+                "object",
+                "App\\Entity\\Friend"
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 113,
+            "args": [
+              [
+                "object",
+                "App\\Entity\\Friend"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "App\\Entity\\Friend"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitArray",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\Handler\\ArrayCollectionHandler.php",
+            "line": 84,
+            "args": [
+              [
+                "array",
+                [
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ]
+                ]
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Friend"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer\\Handler",
+            "short_class": "ArrayCollectionHandler",
+            "class": "JMS\\Serializer\\Handler\\ArrayCollectionHandler",
+            "type": "->",
+            "function": "serializeCollection",
+            "file": null,
+            "line": null,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ],
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Friend"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "call_user_func",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 203,
+            "args": [
+              [
+                "array",
+                [
+                  [
+                    "object",
+                    "JMS\\Serializer\\Handler\\ArrayCollectionHandler"
+                  ],
+                  [
+                    "string",
+                    "serializeCollection"
+                  ]
+                ]
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ],
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "ArrayCollection"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Friend"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 161,
+            "args": [
+              [
+                "object",
+                "Doctrine\\ORM\\PersistentCollection"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "ArrayCollection"
+                  ],
+                  "params": [
+                    "array",
+                    [
+                      [
+                        "array",
+                        {
+                          "name": [
+                            "string",
+                            "App\\Entity\\Friend"
+                          ],
+                          "params": [
+                            "array",
+                            []
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitProperty",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 267,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\Metadata\\PropertyMetadata"
+              ],
+              [
+                "object",
+                "App\\Entity\\User"
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 161,
+            "args": [
+              [
+                "object",
+                "App\\Entity\\User"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "App\\Entity\\User"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitProperty",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 267,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\Metadata\\PropertyMetadata"
+              ],
+              [
+                "object",
+                "App\\Entity\\Friend"
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 113,
+            "args": [
+              [
+                "object",
+                "App\\Entity\\Friend"
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "App\\Entity\\Friend"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitArray",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 153,
+            "args": [
+              [
+                "array",
+                [
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ]
+                ]
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\JsonSerializationVisitor.php",
+            "line": 113,
+            "args": [
+              [
+                "array",
+                [
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ],
+                  [
+                    "object",
+                    "App\\Entity\\Friend"
+                  ]
+                ]
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "JsonSerializationVisitor",
+            "class": "JMS\\Serializer\\JsonSerializationVisitor",
+            "type": "->",
+            "function": "visitArray",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\GraphNavigator.php",
+            "line": 153,
+            "args": [
+              [
+                "array",
+                {
+                  "friends": [
+                    "array",
+                    [
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ]
+                    ]
+                  ],
+                  "status": [
+                    "boolean",
+                    true
+                  ]
+                }
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "GraphNavigator",
+            "class": "JMS\\Serializer\\GraphNavigator",
+            "type": "->",
+            "function": "accept",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\Serializer.php",
+            "line": 193,
+            "args": [
+              [
+                "array",
+                {
+                  "friends": [
+                    "array",
+                    [
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ]
+                    ]
+                  ],
+                  "status": [
+                    "boolean",
+                    true
+                  ]
+                }
+              ],
+              [
+                "array",
+                {
+                  "name": [
+                    "string",
+                    "array"
+                  ],
+                  "params": [
+                    "array",
+                    []
+                  ]
+                }
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "Serializer",
+            "class": "JMS\\Serializer\\Serializer",
+            "type": "->",
+            "function": "visit",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\Serializer.php",
+            "line": 112,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\SerializationContext"
+              ],
+              [
+                "array",
+                {
+                  "friends": [
+                    "array",
+                    [
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ]
+                    ]
+                  ],
+                  "status": [
+                    "boolean",
+                    true
+                  ]
+                }
+              ],
+              [
+                "string",
+                "json"
+              ],
+              [
+                "null",
+                null
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "Serializer",
+            "class": "JMS\\Serializer\\Serializer",
+            "type": "->",
+            "function": "JMS\\Serializer\\{closure}",
+            "file": null,
+            "line": null,
+            "args": [
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ]
+            ]
+          },
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "call_user_func",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\phpoption\\phpoption\\src\\PhpOption\\Some.php",
+            "line": 89,
+            "args": [
+              [
+                "object",
+                "Closure"
+              ],
+              [
+                "object",
+                "JMS\\Serializer\\JsonSerializationVisitor"
+              ]
+            ]
+          },
+          {
+            "namespace": "PhpOption",
+            "short_class": "Some",
+            "class": "PhpOption\\Some",
+            "type": "->",
+            "function": "map",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\jms\\serializer\\src\\JMS\\Serializer\\Serializer.php",
+            "line": 115,
+            "args": [
+              [
+                "object",
+                "Closure"
+              ]
+            ]
+          },
+          {
+            "namespace": "JMS\\Serializer",
+            "short_class": "Serializer",
+            "class": "JMS\\Serializer\\Serializer",
+            "type": "->",
+            "function": "serialize",
+            "file": "C:\\wamp64\\www\\PopOut\\src\\Controller\\ClassicUser\\EventController.php",
+            "line": 79,
+            "args": [
+              [
+                "array",
+                {
+                  "friends": [
+                    "array",
+                    [
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ],
+                      [
+                        "object",
+                        "App\\Entity\\Friend"
+                      ]
+                    ]
+                  ],
+                  "status": [
+                    "boolean",
+                    true
+                  ]
+                }
+              ],
+              [
+                "string",
+                "json"
+              ]
+            ]
+          },
+          {
+            "namespace": "App\\Controller\\ClassicUser",
+            "short_class": "EventController",
+            "class": "App\\Controller\\ClassicUser\\EventController",
+            "type": "->",
+            "function": "getActiveFriendsInMap",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\symfony\\http-kernel\\HttpKernel.php",
+            "line": 149,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "HttpKernel",
+            "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+            "type": "->",
+            "function": "handleRaw",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\symfony\\http-kernel\\HttpKernel.php",
+            "line": 66,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ],
+              [
+                "integer",
+                1
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "HttpKernel",
+            "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+            "type": "->",
+            "function": "handle",
+            "file": "C:\\wamp64\\www\\PopOut\\vendor\\symfony\\http-kernel\\Kernel.php",
+            "line": 190,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ],
+              [
+                "integer",
+                1
+              ],
+              [
+                "boolean",
+                true
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "Kernel",
+            "class": "Symfony\\Component\\HttpKernel\\Kernel",
+            "type": "->",
+            "function": "handle",
+            "file": "C:\\wamp64\\www\\PopOut\\public\\index.php",
+            "line": 37,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

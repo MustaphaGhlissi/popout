@@ -1,0 +1,38 @@
+fos_user_resetting_send_email:
+    path: /user/resetting/send-email
+    controller: FOSUserBundle:Resetting:sendEmail
+
+fos_user_resetting_check_email:
+    path: /user/resetting/check-email
+    controller: FOSUserBundle:Resetting:checkEmail
+
+fos_user_resetting_reset:
+    path: /user/resetting/reset/{token}
+    controller: FOSUserBundle:Resetting:reset
+
+admin_login:
+    path:  /admin/login
+    controller: App\Controller\Admin\SecurityController::login
+
+admin_login_check:
+    path:  /admin/login_check
+    controller: App\Controller\Admin\SecurityController::check
+
+admin_logout:
+    path:  /admin/logout
+    controller: App\Controller\Admin\SecurityController::logout
+
+api_login_check:
+    path: /api/login_check
+
+pro_user_events:
+    type:     rest
+    resource: App\Controller\ProUser\EventController
+
+classic_user_events:
+    type:     rest
+    resource: App\Controller\ClassicUser\EventController
+
+api_chat_messages:
+    type:     rest
+    resource: App\Controller\Common\ChatController

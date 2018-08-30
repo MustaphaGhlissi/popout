@@ -1,0 +1,166 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="card card-register mx-auto mt-5">
+        <div class="card-header">
+            Nouvelle offre
+            <div class="pull-right">
+                <a href="{{ path('offer_list') }}">
+                    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Retour à la liste
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            {% for key,msgs in app.session.flashbag.all() %}
+                {% for msg in msgs %}
+                    <div class="alert alert-{{ key }}" role="alert">
+                        {{ msg|raw }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {{ form_start(form) }}
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        {{ form_row(form.event,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        {{ form_row(form.description,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-8">
+                        {{ form_label(form.startDate) }}
+                        <div class="input-group">
+                            {{ form_widget(form.startDate,{'attr':{'class':'form-control'}}) }}
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-secondary btn-start-date">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        {{ form_label(form.startTime) }}
+                        <div class="input-group">
+                            {{ form_widget(form.startTime,{'attr':{'class':'form-control'}}) }}
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-secondary btn-start-time">
+                                    <i class="fa fa-clock-o"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-8">
+                        {{ form_label(form.endDate) }}
+                        <div class="input-group">
+                            {{ form_widget(form.endDate,{'attr':{'class':'form-control'}}) }}
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-secondary btn-end-date">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_label(form.endTime) }}
+                        <div class="input-group">
+                            {{ form_widget(form.endTime,{'attr':{'class':'form-control'}}) }}
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-secondary btn-end-time">
+                                    <i class="fa fa-clock-o"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="from-group text-right">
+                {{ form_widget(form.submit,{'attr':{'class':'btn btn-primary'}}) }}
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script !src="">
+        CKEDITOR.replace('form_offer_description',{
+            language: 'fr',
+        });
+
+        $(function () {
+            $('#form_offer_startDate').datetimepicker(
+                {
+                    format: 'YYYY/MM/DD',
+                    sideBySide: true,
+                    icons: {
+                        up: "fa fa-chevron-circle-up",
+                        down: "fa fa-chevron-circle-down",
+                        next: 'fa fa-chevron-circle-right',
+                        previous: 'fa fa-chevron-circle-left'
+                    }
+                }
+            );
+
+            $('#form_offer_endDate').datetimepicker(
+                {
+                    format: 'YYYY/MM/DD',
+                    sideBySide: true,
+                    icons: {
+                        up: "fa fa-chevron-circle-up",
+                        down: "fa fa-chevron-circle-down",
+                        next: 'fa fa-chevron-circle-right',
+                        previous: 'fa fa-chevron-circle-left'
+                    }
+                }
+            );
+
+            $('#form_offer_startTime').datetimepicker(
+                {
+                    format: 'HH:mm',
+                    sideBySide: true,
+                    icons: {
+                        up: "fa fa-chevron-circle-up",
+                        down: "fa fa-chevron-circle-down",
+                        next: 'fa fa-chevron-circle-right',
+                        previous: 'fa fa-chevron-circle-left'
+                    }
+                }
+            );
+
+            $('#form_offer_endTime').datetimepicker(
+                {
+                    format: 'HH:mm',
+                    sideBySide: true,
+                    icons: {
+                        up: "fa fa-chevron-circle-up",
+                        down: "fa fa-chevron-circle-down",
+                        next: 'fa fa-chevron-circle-right',
+                        previous: 'fa fa-chevron-circle-left'
+                    }
+                }
+            );
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        {% block stylesheets %}
+            <title>Administrateur</title>
+            <link href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('admin/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+            <link href="{{ asset('admin/css/sb-admin.css') }}" rel="stylesheet">
+        {% endblock %}
+        {% block javascripts_head %}
+        {% endblock %}
+    </head>
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+        {% block body %}
+            {% block nav %}{% include 'admin/_common/nav.html.twig' %}{% endblock nav %}
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+                {% block footer %}{% include 'admin/_common/footer.html.twig' %}{% endblock %}
+
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Déconnexion</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Voulez vous vraiment quitter ?
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Non</button>
+                                <a class="btn btn-primary" href="{{ path('admin_logout') }}">Oui</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        {% endblock %}
+        {% block javascripts_body %}
+            <!-- Bootstrap core JavaScript-->
+            <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('admin/js/moment.min.js') }}"></script>
+            {#<script type="text/javascript" src="{{ asset('admin/js/locales.min.js') }}"></script>#}
+            <script type="text/javascript" src="{{ asset('admin/js/moment-timezone.min.js') }}"></script>
+            <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+            <!-- Page level plugin JavaScript-->
+            {#<script src="{{ asset('admin/vendor/chart/chart.min.js') }}"></script>#}
+            <script src="{{ asset('admin/vendor/datatables/jquery.dataTables.js') }}"></script>
+            <script src="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="{{ asset('admin/js/sb-admin.min.js') }}"></script>
+            <!-- Custom scripts for this page-->
+            <script src="{{ asset('admin/js/sb-admin-datatables.min.js') }}"></script>
+            {#<script src="{{ asset('admin/js/sb-admin-charts.min.js') }}"></script>#}
+        {% endblock %}
+    </body>
+</html>
+

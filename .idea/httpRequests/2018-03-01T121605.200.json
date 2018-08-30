@@ -1,0 +1,601 @@
+{
+  "friends": [
+    {
+      "id": 1,
+      "classic_user": {
+        "id": 1,
+        "username": "contact@popout.com",
+        "username_canonical": "contact@popout.com",
+        "email": "contact@popout.com",
+        "email_canonical": "contact@popout.com",
+        "enabled": true,
+        "password": "$2y$13$sRjyeDsGDGOKLPljyu.C.OfVh5OBE.AeJAar0KT9U1f31KTR/.7Lm",
+        "last_login": "2018-03-01T11:16:01+00:00",
+        "groups": [],
+        "roles": [
+          "ROLE_ADMIN"
+        ],
+        "friends": [
+          {
+            "id": 3,
+            "friend_with": {
+              "id": 512,
+              "username": "user@user8.com",
+              "username_canonical": "user@user8.com",
+              "email": "user@user8.com",
+              "email_canonical": "user@user8.com",
+              "enabled": false,
+              "password": "$2y$13$jnUn0b7isxwXVOBYk0kG5urmqDZwMWK37k4fspOnbNHFe4o747RNO",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 341,
+                  "question": "Question N\u00b08",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02",
+                    "This is the response n\u00b03"
+                  ]
+                }
+              ],
+              "first_name": "user8",
+              "last_name": "user8",
+              "phone": "977eadee9b11deb00f84d4752c7a978a",
+              "status": true
+            }
+          },
+          {
+            "id": 5,
+            "friend_with": {
+              "id": 518,
+              "username": "user@user14.com",
+              "username_canonical": "user@user14.com",
+              "email": "user@user14.com",
+              "email_canonical": "user@user14.com",
+              "enabled": false,
+              "password": "$2y$13$qTteMvUDU9rEeT9T5hjS3eaFRBLOvIEE.FmBg4edoU82mkLpl06Ty",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 347,
+                  "question": "Question N\u00b014",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02"
+                  ]
+                }
+              ],
+              "first_name": "user14",
+              "last_name": "user14",
+              "phone": "251ed8a07b49dc1c7b34cce1d972ed96",
+              "status": true
+            }
+          },
+          {
+            "id": 7,
+            "friend_with": {
+              "id": 524,
+              "username": "user@user20.com",
+              "username_canonical": "user@user20.com",
+              "email": "user@user20.com",
+              "email_canonical": "user@user20.com",
+              "enabled": false,
+              "password": "$2y$13$yNehDlee8aQbyMd3En0hg.ZmMdMFEIsfx4U6FNoZG3v.RAuXVxiuC",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 353,
+                  "question": "Question N\u00b020",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01"
+                  ]
+                }
+              ],
+              "first_name": "user20",
+              "last_name": "user20",
+              "phone": "7249e993e29c14853ee6aa6bc8f72a51",
+              "status": true
+            }
+          }
+        ],
+        "events": [],
+        "quizzes": [],
+        "status": true
+      },
+      "friend_with": {
+        "id": 506,
+        "username": "user@user2.com",
+        "username_canonical": "user@user2.com",
+        "email": "user@user2.com",
+        "email_canonical": "user@user2.com",
+        "enabled": false,
+        "password": "$2y$13$mXJwRdGTM0GHfTsFBL5HIu0Cpk52udd6W1hRsHzFK8fkOveb.OWt2",
+        "roles": [
+          "ROLE_PERSONAL"
+        ],
+        "friends": [],
+        "events": [],
+        "quizzes": [
+          {
+            "id": 335,
+            "question": "Question N\u00b02",
+            "responses": [
+              "This is the response n\u00b00",
+              "This is the response n\u00b01",
+              "This is the response n\u00b02",
+              "This is the response n\u00b03",
+              "This is the response n\u00b04"
+            ]
+          }
+        ],
+        "first_name": "user2",
+        "last_name": "user2",
+        "phone": "5f7aff9f5daacc1e73d6bd0839812fbe",
+        "status": true
+      }
+    },
+    {
+      "id": 3,
+      "classic_user": {
+        "id": 1,
+        "username": "contact@popout.com",
+        "username_canonical": "contact@popout.com",
+        "email": "contact@popout.com",
+        "email_canonical": "contact@popout.com",
+        "enabled": true,
+        "password": "$2y$13$sRjyeDsGDGOKLPljyu.C.OfVh5OBE.AeJAar0KT9U1f31KTR/.7Lm",
+        "last_login": "2018-03-01T11:16:01+00:00",
+        "groups": [],
+        "roles": [
+          "ROLE_ADMIN"
+        ],
+        "friends": [
+          {
+            "id": 1,
+            "friend_with": {
+              "id": 506,
+              "username": "user@user2.com",
+              "username_canonical": "user@user2.com",
+              "email": "user@user2.com",
+              "email_canonical": "user@user2.com",
+              "enabled": false,
+              "password": "$2y$13$mXJwRdGTM0GHfTsFBL5HIu0Cpk52udd6W1hRsHzFK8fkOveb.OWt2",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 335,
+                  "question": "Question N\u00b02",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02",
+                    "This is the response n\u00b03",
+                    "This is the response n\u00b04"
+                  ]
+                }
+              ],
+              "first_name": "user2",
+              "last_name": "user2",
+              "phone": "5f7aff9f5daacc1e73d6bd0839812fbe",
+              "status": true
+            }
+          },
+          {
+            "id": 5,
+            "friend_with": {
+              "id": 518,
+              "username": "user@user14.com",
+              "username_canonical": "user@user14.com",
+              "email": "user@user14.com",
+              "email_canonical": "user@user14.com",
+              "enabled": false,
+              "password": "$2y$13$qTteMvUDU9rEeT9T5hjS3eaFRBLOvIEE.FmBg4edoU82mkLpl06Ty",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 347,
+                  "question": "Question N\u00b014",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02"
+                  ]
+                }
+              ],
+              "first_name": "user14",
+              "last_name": "user14",
+              "phone": "251ed8a07b49dc1c7b34cce1d972ed96",
+              "status": true
+            }
+          },
+          {
+            "id": 7,
+            "friend_with": {
+              "id": 524,
+              "username": "user@user20.com",
+              "username_canonical": "user@user20.com",
+              "email": "user@user20.com",
+              "email_canonical": "user@user20.com",
+              "enabled": false,
+              "password": "$2y$13$yNehDlee8aQbyMd3En0hg.ZmMdMFEIsfx4U6FNoZG3v.RAuXVxiuC",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 353,
+                  "question": "Question N\u00b020",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01"
+                  ]
+                }
+              ],
+              "first_name": "user20",
+              "last_name": "user20",
+              "phone": "7249e993e29c14853ee6aa6bc8f72a51",
+              "status": true
+            }
+          }
+        ],
+        "events": [],
+        "quizzes": [],
+        "status": true
+      },
+      "friend_with": {
+        "id": 512,
+        "username": "user@user8.com",
+        "username_canonical": "user@user8.com",
+        "email": "user@user8.com",
+        "email_canonical": "user@user8.com",
+        "enabled": false,
+        "password": "$2y$13$jnUn0b7isxwXVOBYk0kG5urmqDZwMWK37k4fspOnbNHFe4o747RNO",
+        "roles": [
+          "ROLE_PERSONAL"
+        ],
+        "friends": [],
+        "events": [],
+        "quizzes": [
+          {
+            "id": 341,
+            "question": "Question N\u00b08",
+            "responses": [
+              "This is the response n\u00b00",
+              "This is the response n\u00b01",
+              "This is the response n\u00b02",
+              "This is the response n\u00b03"
+            ]
+          }
+        ],
+        "first_name": "user8",
+        "last_name": "user8",
+        "phone": "977eadee9b11deb00f84d4752c7a978a",
+        "status": true
+      }
+    },
+    {
+      "id": 5,
+      "classic_user": {
+        "id": 1,
+        "username": "contact@popout.com",
+        "username_canonical": "contact@popout.com",
+        "email": "contact@popout.com",
+        "email_canonical": "contact@popout.com",
+        "enabled": true,
+        "password": "$2y$13$sRjyeDsGDGOKLPljyu.C.OfVh5OBE.AeJAar0KT9U1f31KTR/.7Lm",
+        "last_login": "2018-03-01T11:16:01+00:00",
+        "groups": [],
+        "roles": [
+          "ROLE_ADMIN"
+        ],
+        "friends": [
+          {
+            "id": 1,
+            "friend_with": {
+              "id": 506,
+              "username": "user@user2.com",
+              "username_canonical": "user@user2.com",
+              "email": "user@user2.com",
+              "email_canonical": "user@user2.com",
+              "enabled": false,
+              "password": "$2y$13$mXJwRdGTM0GHfTsFBL5HIu0Cpk52udd6W1hRsHzFK8fkOveb.OWt2",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 335,
+                  "question": "Question N\u00b02",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02",
+                    "This is the response n\u00b03",
+                    "This is the response n\u00b04"
+                  ]
+                }
+              ],
+              "first_name": "user2",
+              "last_name": "user2",
+              "phone": "5f7aff9f5daacc1e73d6bd0839812fbe",
+              "status": true
+            }
+          },
+          {
+            "id": 3,
+            "friend_with": {
+              "id": 512,
+              "username": "user@user8.com",
+              "username_canonical": "user@user8.com",
+              "email": "user@user8.com",
+              "email_canonical": "user@user8.com",
+              "enabled": false,
+              "password": "$2y$13$jnUn0b7isxwXVOBYk0kG5urmqDZwMWK37k4fspOnbNHFe4o747RNO",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 341,
+                  "question": "Question N\u00b08",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02",
+                    "This is the response n\u00b03"
+                  ]
+                }
+              ],
+              "first_name": "user8",
+              "last_name": "user8",
+              "phone": "977eadee9b11deb00f84d4752c7a978a",
+              "status": true
+            }
+          },
+          {
+            "id": 7,
+            "friend_with": {
+              "id": 524,
+              "username": "user@user20.com",
+              "username_canonical": "user@user20.com",
+              "email": "user@user20.com",
+              "email_canonical": "user@user20.com",
+              "enabled": false,
+              "password": "$2y$13$yNehDlee8aQbyMd3En0hg.ZmMdMFEIsfx4U6FNoZG3v.RAuXVxiuC",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 353,
+                  "question": "Question N\u00b020",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01"
+                  ]
+                }
+              ],
+              "first_name": "user20",
+              "last_name": "user20",
+              "phone": "7249e993e29c14853ee6aa6bc8f72a51",
+              "status": true
+            }
+          }
+        ],
+        "events": [],
+        "quizzes": [],
+        "status": true
+      },
+      "friend_with": {
+        "id": 518,
+        "username": "user@user14.com",
+        "username_canonical": "user@user14.com",
+        "email": "user@user14.com",
+        "email_canonical": "user@user14.com",
+        "enabled": false,
+        "password": "$2y$13$qTteMvUDU9rEeT9T5hjS3eaFRBLOvIEE.FmBg4edoU82mkLpl06Ty",
+        "roles": [
+          "ROLE_PERSONAL"
+        ],
+        "friends": [],
+        "events": [],
+        "quizzes": [
+          {
+            "id": 347,
+            "question": "Question N\u00b014",
+            "responses": [
+              "This is the response n\u00b00",
+              "This is the response n\u00b01",
+              "This is the response n\u00b02"
+            ]
+          }
+        ],
+        "first_name": "user14",
+        "last_name": "user14",
+        "phone": "251ed8a07b49dc1c7b34cce1d972ed96",
+        "status": true
+      }
+    },
+    {
+      "id": 7,
+      "classic_user": {
+        "id": 1,
+        "username": "contact@popout.com",
+        "username_canonical": "contact@popout.com",
+        "email": "contact@popout.com",
+        "email_canonical": "contact@popout.com",
+        "enabled": true,
+        "password": "$2y$13$sRjyeDsGDGOKLPljyu.C.OfVh5OBE.AeJAar0KT9U1f31KTR/.7Lm",
+        "last_login": "2018-03-01T11:16:01+00:00",
+        "groups": [],
+        "roles": [
+          "ROLE_ADMIN"
+        ],
+        "friends": [
+          {
+            "id": 1,
+            "friend_with": {
+              "id": 506,
+              "username": "user@user2.com",
+              "username_canonical": "user@user2.com",
+              "email": "user@user2.com",
+              "email_canonical": "user@user2.com",
+              "enabled": false,
+              "password": "$2y$13$mXJwRdGTM0GHfTsFBL5HIu0Cpk52udd6W1hRsHzFK8fkOveb.OWt2",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 335,
+                  "question": "Question N\u00b02",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02",
+                    "This is the response n\u00b03",
+                    "This is the response n\u00b04"
+                  ]
+                }
+              ],
+              "first_name": "user2",
+              "last_name": "user2",
+              "phone": "5f7aff9f5daacc1e73d6bd0839812fbe",
+              "status": true
+            }
+          },
+          {
+            "id": 3,
+            "friend_with": {
+              "id": 512,
+              "username": "user@user8.com",
+              "username_canonical": "user@user8.com",
+              "email": "user@user8.com",
+              "email_canonical": "user@user8.com",
+              "enabled": false,
+              "password": "$2y$13$jnUn0b7isxwXVOBYk0kG5urmqDZwMWK37k4fspOnbNHFe4o747RNO",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 341,
+                  "question": "Question N\u00b08",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02",
+                    "This is the response n\u00b03"
+                  ]
+                }
+              ],
+              "first_name": "user8",
+              "last_name": "user8",
+              "phone": "977eadee9b11deb00f84d4752c7a978a",
+              "status": true
+            }
+          },
+          {
+            "id": 5,
+            "friend_with": {
+              "id": 518,
+              "username": "user@user14.com",
+              "username_canonical": "user@user14.com",
+              "email": "user@user14.com",
+              "email_canonical": "user@user14.com",
+              "enabled": false,
+              "password": "$2y$13$qTteMvUDU9rEeT9T5hjS3eaFRBLOvIEE.FmBg4edoU82mkLpl06Ty",
+              "roles": [
+                "ROLE_PERSONAL"
+              ],
+              "friends": [],
+              "events": [],
+              "quizzes": [
+                {
+                  "id": 347,
+                  "question": "Question N\u00b014",
+                  "responses": [
+                    "This is the response n\u00b00",
+                    "This is the response n\u00b01",
+                    "This is the response n\u00b02"
+                  ]
+                }
+              ],
+              "first_name": "user14",
+              "last_name": "user14",
+              "phone": "251ed8a07b49dc1c7b34cce1d972ed96",
+              "status": true
+            }
+          }
+        ],
+        "events": [],
+        "quizzes": [],
+        "status": true
+      },
+      "friend_with": {
+        "id": 524,
+        "username": "user@user20.com",
+        "username_canonical": "user@user20.com",
+        "email": "user@user20.com",
+        "email_canonical": "user@user20.com",
+        "enabled": false,
+        "password": "$2y$13$yNehDlee8aQbyMd3En0hg.ZmMdMFEIsfx4U6FNoZG3v.RAuXVxiuC",
+        "roles": [
+          "ROLE_PERSONAL"
+        ],
+        "friends": [],
+        "events": [],
+        "quizzes": [
+          {
+            "id": 353,
+            "question": "Question N\u00b020",
+            "responses": [
+              "This is the response n\u00b00",
+              "This is the response n\u00b01"
+            ]
+          }
+        ],
+        "first_name": "user20",
+        "last_name": "user20",
+        "phone": "7249e993e29c14853ee6aa6bc8f72a51",
+        "status": true
+      }
+    }
+  ],
+  "status": true
+}

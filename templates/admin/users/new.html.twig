@@ -1,0 +1,65 @@
+{% extends 'admin/layout.html.twig' %}
+
+
+{% block content %}
+    {% set route = app.request.get('_route') %}
+    <div class="card card-register mx-auto mt-5">
+        <div class="card-header">
+            {% if route starts with 'pro' %}
+                Nouveau compte professionnel
+                {% set path = "pro_users" %}
+            {% else %}
+                Nouveau compte personnel
+                {% set path = "classic_users" %}
+            {% endif %}
+            <div class="pull-right">
+                <a href="{{ path(path) }}">
+                    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Retour à la liste
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            {% for key,msgs in app.session.flashbag.all() %}
+                {% for msg in msgs %}
+                    <div class="alert alert-{{ key }}" role="alert">
+                        {{ msg|raw }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {{ form_start(form) }}
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            {{ form_row(form.firstName,{'attr':{'class':'form-control','aria-describedby':'nameHelp'}}) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.lastName,{'attr':{'class':'form-control','aria-describedby':'nameHelp'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            {{ form_row(form.email,{'attr':{'class':'form-control','aria-describedby':'emailHelp'}}) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.phone,{'attr':{'class':'form-control','aria-describedby':'nameHelp'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                    <div class="col-md-6">
+                        {{ form_row(form.password,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    </div>
+                </div>
+                <div class="from-group">
+                    {{ form_widget(form.submit,{'attr':{'class':'btn btn-primary btn-block'}}) }}
+                </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+

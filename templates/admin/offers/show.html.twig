@@ -1,0 +1,129 @@
+{% extends 'admin/layout.html.twig' %}
+    {% block content %}
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('admin_dashboard') }}">Tableau de bord</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ path('offer_list') }}">Liste des offres</a>
+                </li>
+                <li class="breadcrumb-item active"> Détails de l'offre n°{{ offer.id }}</li>
+            </ol>
+            <!-- Icon Cards-->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-users"></i> Détails de l'offre n°{{ offer.id }}
+                </div>
+                <div class="card-body">
+                    {% for key,msgs in app.session.flashbag.all() %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-{{ key }}" role="alert">
+                                {{ msg|raw }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    <div class="text-right" style="margin: 10px 0">
+                        <ul class="actions">
+                            <li>
+                                <a href="{{ path('offer_list') }}">
+                                    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Retour à la liste
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('offer_update', {id: offer.id}) }}" class="btn btn-success">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#deleteModal" data-id="{{ offer.id }}" data-toggle="modal" class="btn btn-danger">
+                                    <i class="fa fa-fw fa-trash"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <tr>
+                                <th>Identifiant</th>
+                                <td>{{ offer.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Evènement</th>
+                                <td>{{ offer.event.name|title }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de début</th>
+                                <td>{{ offer.startDate|date('Y-m-d') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Heure de début</th>
+                                <td>{{ offer.startTime|date('H:i') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date d'expiration</th>
+                                <td>{{ offer.endDate|date('Y-m-d') }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Heure d'expiration</th>
+                                <td>{{ offer.endTime|date('H:i') }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Description détaillée</th>
+                                <td>
+                                    {{ offer.description|raw }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fa fa-fw fa-warning"></i>
+                        Attention cette opération est irreversible !
+                        Voulez vous vraiment supprimer cette offre ?
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Non</button>
+                        <a class="btn btn-primary" href="" id="deleteOffer">Oui</a>
+                        <form method="post" action="" id="form-delete">
+                            <button class="btn btn-primary">
+                                Oui
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('[href="#deleteModal"]').click(function () {
+                var id = $(this).data('id');
+                var action;
+                action = "{{ path('offer_delete',{id: 'id'}) }}";
+                action = action.replace('id', id);
+                $('#form-delete').attr('href', action);
+            });
+        });
+    </script>
+{% endblock %}

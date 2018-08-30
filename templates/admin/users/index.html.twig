@@ -1,0 +1,236 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    {% set proRoute = app.request.get('_route')=="pro_users" %}
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ path('admin_dashboard') }}">Tableau de bord</a>
+            </li>
+            <li class="breadcrumb-item active"> {{ proRoute?"Liste des professionnels":"Liste des personnels" }}</li>
+        </ol>
+        <!-- Icon Cards-->
+        <div class="card mb-3">
+
+            <div class="card-header">
+                <i class="fa fa-users"></i> {{ proRoute?"Liste des professionnels":"Liste des personnels" }}
+                <div class="text-right pull-right">
+                    {% if proRoute %}
+                        <a href="{{ path('pro_user_create') }}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            Créer un compte professionnel
+                        </a>
+                    {% else %}
+                        <a href="{{ path('classic_user_create') }}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            Créer un compte personnel
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                {% for key,msgs in app.session.flashbag.all() %}
+                    {% for msg in msgs %}
+                        <div class="alert alert-{{ key }}" role="alert">
+                            {{ msg|raw }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTables" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Téléphone</th>
+                            <th>E-mail</th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>id</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Téléphone</th>
+                            <th>E-mail</th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-fw fa-warning"></i>
+                    Attention cette opération est irreversible !
+                    Voulez vous vraiment supprimer cet utilisateur ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Non</button>
+                    <form action="" id="form-delete" method="post">
+                        <button class="btn btn-primary" id="deleteUser">
+                            Oui
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts_body %}
+    {{ parent() }}
+    <script>
+        {% set proRoute = app.request.get('_route')=="pro_users" %}
+        $(document).ready(function () {
+            function action(data, type, full, meta) {
+
+                {% set showUser = proRoute?'pro_user_show':'classic_user_show' %}
+                {% set updateUser = proRoute?'pro_user_update':'classic_user_update' %}
+
+                var id = data.id;
+                var roles = data.roles;
+
+                var showHref = "{{ path(showUser,{id: 'id'}) }}";
+                showHref = showHref.replace('id', id);
+
+                var updateHref = "{{ path(updateUser,{id: 'id'}) }}";
+                updateHref = updateHref.replace('id', id);
+
+                var role = 'classic';
+                var rolePosition = roles.indexOf("ROLE_PROFESSIONAL");
+
+                if (rolePosition != -1) {
+                    role = "pro";
+                }
+
+                var actions = '<ul class="actions"><li>' +
+                    '<a href="' + showHref + '" class="btn btn-primary" style="margin: 5px">' +
+                    '<i class="fa fa-fw fa-eye"></i> </a></li>' +
+                    '<li>' +
+                    '<a href="' + updateHref + '" class="btn btn-success" style="margin: 5px">' +
+                    '<i class="fa fa-fw fa-edit"></i></a></li>' +
+                    '<li>' +
+                    '<a href="#deleteModal" data-role="'+role+'" data-id="' + id + '" data-toggle="modal" class="btn btn-danger" style="margin: 5px">' +
+                    '<i class="fa fa-fw fa-trash"></i></a>' +
+                    '</li> </ul>';
+                return actions;
+            }
+
+            $('#dataTables').DataTable(
+                {
+                    "destroy": true,
+                    "order": [0, 'asc'],
+                    "processing": true,
+                    "serverSide": false,
+                    "ajax": {
+                        url: "{{ path(proRoute?'pro_users_list':'classic_users_list') }}",
+                        type: 'POST'
+                    },
+                    "columnDefs": [
+                        {"orderable": true, "targets": 0}
+                    ],
+                    "columns": [
+                        {
+                            data: "id"
+                        },
+                        {
+                            data: "first_name",
+                            render: function (data, type, full, meta) {
+                                if(full.first_name)
+                                {
+                                    return full.first_name;
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            data: "last_name",
+                            render: function (data, type, full, meta) {
+                                if(full.last_name)
+                                {
+                                    return full.last_name;
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            data: "phone",
+                            render: function (data, type, full, meta) {
+                                if(full.phone)
+                                {
+                                    return full.phone;
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            data: "email"
+                        },
+                        {
+                            orderable: false,
+                            searchable: false,
+                            data: null,
+                            render: function (data, type, full, meta) {
+                                return action(data, type, full, meta);
+                            }
+                        }
+                    ],
+                    "language": {
+                        "sProcessing": "Chargement en cours...",
+                        "sSearch": "Rechercher&nbsp;:",
+                        "sLengthMenu": "Afficher _MENU_ &eacute;l&eacute;ments",
+                        "sInfo": "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                        "sInfoEmpty": "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                        "sInfoFiltered": "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                        "sInfoPostFix": "",
+                        "sLoadingRecords": "Chargement en cours...",
+                        "sZeroRecords": "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                        "sEmptyTable": "Aucune donn&eacute;e disponible dans le tableau",
+                        "oPaginate": {
+                            "sFirst": "Premier",
+                            "sPrevious": "Pr&eacute;c&eacute;dent",
+                            "sNext": "Suivant",
+                            "sLast": "Dernier"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": activer pour trier la colonne par ordre croissant",
+                            "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+                        }
+                    }
+                }
+            );
+        });
+
+        $(document).on('click','[href="#deleteModal"]', function () {
+            var id = $(this).data('id');
+            var role = $(this).data('role');
+            var action;
+            if (role === 'pro') {
+                action = "{{ path('pro_user_delete',{id: 'id'}) }}";
+            }
+            else {
+                action = "{{ path('classic_user_delete',{id: 'id'}) }}";
+            }
+            action = action.replace('id', id);
+            $('#form-delete').attr('action', action);
+        });
+    </script>
+{% endblock %}
